@@ -28,8 +28,13 @@ main {
 header {
   display: flex;
   justify-content: space-around;
-  align-items: baseline;
+  /* align-items: baseline; */
   width: 1200px;
+  margin-top: 50px;
+}
+
+header .logo {
+  margin-top: -10px;
 }
 
 header .logo a {
@@ -54,6 +59,40 @@ header input::placeholder {
   text-align: center;
   font-size: 16px;
   color: #777;
+}
+
+.latitude {
+  width: 100px;
+  height: 25px;
+}
+
+.latitude-label {
+  position: absolute;
+  top: 72px;
+  left: 926px;
+  color: #777;
+  transition: 0.5s;
+}
+
+.latitude:hover {
+  border: 2px solid #555;
+}
+
+.longitude {
+  width: 100px;
+  height: 25px;
+}
+
+.longitude-label {
+  position: absolute;
+  top: 72px;
+  left: 1024px;
+  color: #777;
+  transition: 0.5s;
+}
+
+label:hover {
+  opacity: 0;
 }
 
 .search {
@@ -117,17 +156,17 @@ section .about h2 {
   transition: 0.7s;
 }
 
-.ico-img:hover {
+/* .ico-img:hover {
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
-}
+} */
 
-.ico-img:hover img {
+/* .ico-img:hover img {
   width: 150px;
   height: 150px;
-}
+} */
 
 .weather-ico {
   width: 28%;
