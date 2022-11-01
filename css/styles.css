@@ -63,8 +63,6 @@ header input::placeholder {
 
 .search:hover {
   border: 2px solid #555;
-  height: 30px;
-  width: 315px;
 }
 
 .search-submit {
@@ -102,7 +100,7 @@ section .about h2 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #969696;
+  background-color: #bebebe;
   width: 1000px;
   height: 300px;
   opacity: 1;
@@ -115,15 +113,28 @@ section .about h2 {
 }
 
 .ico-img img {
-    width: 80%;
+  width: 80%;
+  transition: 0.7s;
+}
+
+.ico-img:hover {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.ico-img:hover img {
+  width: 150px;
+  height: 150px;
 }
 
 .weather-ico {
   width: 28%;
   height: 80%;
-  background-color: #555;
+  background-color: #000;
   opacity: 0.3;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 
 .weather-ico:hover {
@@ -133,9 +144,9 @@ section .about h2 {
 .temperature-ico {
   width: 28%;
   height: 80%;
-  background-color: #555;
+  background-color: #000;
   opacity: 0.3;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 
 .temperature-ico:hover {
@@ -145,9 +156,9 @@ section .about h2 {
 .wind-ico {
   width: 28%;
   height: 80%;
-  background-color: #555;
+  background-color: #000;
   opacity: 0.3;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 
 .wind-ico:hover {
