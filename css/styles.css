@@ -61,48 +61,30 @@ header input::placeholder {
   color: #777;
 }
 
-.latitude {
-  width: 100px;
-  height: 25px;
-}
-
-.latitude-label {
-  position: absolute;
-  top: 72px;
-  left: 926px;
-  color: #777;
-  transition: 0.5s;
-}
-
-.latitude:hover {
-  border: 2px solid #555;
-}
-
+.latitude,
 .longitude {
   width: 100px;
   height: 25px;
+  font-size: 14px;
 }
 
-.longitude-label {
-  position: absolute;
-  top: 72px;
-  left: 1024px;
-  color: #777;
-  transition: 0.5s;
-}
-
-label:hover {
-  opacity: 0;
-}
-
-.search {
-  width: 300px;
-  height: 25px;
-}
-
-.search:hover {
+.latitude:hover,
+.longitude:hover {
   border: 2px solid #555;
 }
+
+label {
+  color: #777;
+}
+
+/* .search {
+  width: 300px;
+  height: 25px;
+} */
+
+/* .search:hover {
+  border: 2px solid #555;
+} */
 
 .search-submit {
   width: 50px;
@@ -119,15 +101,16 @@ section {
   display: flex;
   flex: 1;
   align-items: center;
+  justify-content: space-around;
 }
 
-section .about {
+/* section .about {
   width: 1200px;
   display: flex;
   flex-direction: column;
-}
+} */
 
-section .about h2 {
+section h2 {
   width: 1200px;
   display: flex;
   justify-content: center;
@@ -147,13 +130,24 @@ section .about h2 {
 
 .ico-img {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: flex-start;
 }
 
 .ico-img img {
-  width: 80%;
+  width: 45%;
   transition: 0.7s;
+}
+
+.weather-stat1,
+.weather-stat2,
+.weather-stat3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #bebebe;
+  font-size: 24px;
+  width: 100%;
 }
 
 /* .ico-img:hover {
@@ -168,31 +162,12 @@ section .about h2 {
   height: 150px;
 } */
 
-.weather-ico {
-  width: 28%;
-  height: 80%;
-  background-color: #000;
-  opacity: 0.3;
-  transition: 0.7s;
-}
-
-.weather-ico:hover {
-  opacity: 1;
-}
-
-.temperature-ico {
-  width: 28%;
-  height: 80%;
-  background-color: #000;
-  opacity: 0.3;
-  transition: 0.7s;
-}
-
-.temperature-ico:hover {
-  opacity: 1;
-}
-
+.weather-ico,
+.temperature-ico,
 .wind-ico {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 28%;
   height: 80%;
   background-color: #000;
@@ -200,6 +175,8 @@ section .about h2 {
   transition: 0.7s;
 }
 
+.weather-ico:hover,
+.temperature-ico:hover,
 .wind-ico:hover {
   opacity: 1;
 }
