@@ -62,14 +62,17 @@ header input::placeholder {
 }
 
 .latitude,
-.longitude {
+.longitude,
+.search {
   width: 100px;
   height: 25px;
   font-size: 14px;
+  border-radius: 10px;
 }
 
 .latitude:hover,
-.longitude:hover {
+.longitude:hover,
+.search:hover {
   border: 2px solid #555;
 }
 
@@ -77,6 +80,16 @@ label {
   color: #777;
 }
 
+.about .time {
+  display: flex;
+  flex-direction: row;
+}
+
+.time span {
+  font-weight: 900;
+  text-align: right;
+  /* margin-bottom: 25px; */
+}
 /* .search {
   width: 300px;
   height: 25px;
@@ -90,6 +103,7 @@ label {
   width: 50px;
   height: 25px;
   color: #777;
+  border-radius: 10px;
 }
 
 .search-submit:hover {
@@ -104,18 +118,24 @@ section {
   justify-content: space-around;
 }
 
-/* section .about {
+section .about {
   width: 1200px;
   display: flex;
   flex-direction: column;
-} */
+}
 
 section h2 {
-  width: 1200px;
+  width: 800px;
   display: flex;
-  justify-content: center;
   font-size: 40px;
-  margin-bottom: 25px;
+  
+}
+
+.search {
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+  line-height: inherit;
 }
 
 .weather-stats {
@@ -143,8 +163,8 @@ section h2 {
 .weather-stat2,
 .weather-stat3 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   color: #bebebe;
   font-size: 24px;
   width: 100%;
@@ -168,11 +188,16 @@ section h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 28%;
   height: 80%;
   background-color: #000;
   opacity: 0.3;
   transition: 0.7s;
+}
+
+.temperature-ico img {
+  margin-right: 10px;
 }
 
 .weather-ico:hover,
