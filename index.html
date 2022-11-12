@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{css/styles.css}" />
+    <link rel="stylesheet" href="./css/styles.css" th:href="@{css/styles.css}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet" />
@@ -91,20 +91,20 @@
 
                 <div class="weather-stats">
                     <div class="weather-ico ico-img">
-                        <img src="../static/images/cloudy.png" alt="weather" th:src="@{images/cloudy.png}" />
+                        <img src="./images/cloudy.png" alt="weather" th:src="@{images/cloudy.png}" />
                         <div class="weather-stat1">
                             <p th:text="${weather}"></p>
                         </div>
                     </div>
                     <div class="temperature-ico ico-img">
-                        <img src="../static/images/celsius.png" alt="temperature" th:src="@{images/celsius.png}" />
+                        <img src="./images/celsius.png" alt="temperature" th:src="@{images/celsius.png}" />
                         <div class="weather-stat2">
                             <p th:text="${temperature}"></p>
                             <p>&nbspC&deg</p>
                         </div>
                     </div>
                     <div class="wind-ico ico-img">
-                        <img src="../static/images/wind.png" alt="wind" th:src="@{images/wind.png}" />
+                        <img src="./images/wind.png" alt="wind" th:src="@{images/wind.png}" />
                         <div class="weather-stat3">
                             <p th:text="${windspeed}"></p>
                             <p>&nbspkm/h</p>
