@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="./css/styles.css"
+      th:href="@{css/styles.css}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <div class="logo">
+          <a href="./index.html">Weather App</a>
+        </div>
+
+        <form id="api_form">
+          <input id="select" class="search" />
+
+          <input class="search-submit" type="submit" value="Find" />
+        </form>
+      </header>
+      <section>
+        <section class="about">
+          <div class="time">
+            <!--                    To do: implement a condition after GET method /find-->
+            <div>
+              <h2 id="yourCity">Kyiv</h2>
+            </div>
+            <span id="doc_time"> Date and Time </span>
+          </div>
+
+          <div class="weather-stats">
+            <div class="weather-ico ico-img">
+              <img
+                src="./images/cloudy.png"
+                alt="weather"
+                th:src="@{images/cloudy.png}"
+              />
+              <div class="weather-stat1">
+                <p th:text="${weather}"></p>
+              </div>
+            </div>
+            <div class="temperature-ico ico-img">
+              <img
+                src="./images/celsius.png"
+                alt="temperature"
+                th:src="@{images/celsius.png}"
+              />
+              <div class="weather-stat2">
+                <p th:text="${temperature}"></p>
+                <p>&nbspC&deg</p>
+              </div>
+            </div>
+            <div class="wind-ico ico-img">
+              <img
+                src="./images/wind.png"
+                alt="wind"
+                th:src="@{images/wind.png}"
+              />
+              <div class="weather-stat3">
+                <p th:text="${windspeed}"></p>
+                <p>&nbspkm/h</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer>
+        <p>Designed by d1mkn</p>
+      </footer>
+    </main>
+    <script src="./index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function clock() {
+        let d = new Date();
+        let month_num = d.getMonth();
+        let day = d.getDate();
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        let seconds = d.getSeconds();
+
+        month = [
+          'january',
+          'february',
+          'march',
+          'april',
+          'may',
+          'june',
+          'july',
+          'august',
+          'september',
+          'october',
+          'november',
+          'december',
+        ];
+
+        if (day <= 9) day = '0' + day;
+        if (hours <= 9) hours = '0' + hours;
+        if (minutes <= 9) minutes = '0' + minutes;
+        if (seconds <= 9) seconds = '0' + seconds;
+
+        date_time =
+          'Today is - ' +
+          day +
+          ' ' +
+          month[month_num] +
+          ' ' +
+          d.getFullYear() +
+          '<br>Time - ' +
+          hours +
+          ':' +
+          minutes +
+          ':' +
+          seconds;
+        if (document.layers) {
+          document.layers.doc_time.document.write(date_time);
+          document.layers.doc_time.document.close();
+        } else document.getElementById('doc_time').innerHTML = date_time;
+        setTimeout('clock()', 1000);
+      }
+    </script>
+    <script type="text/javascript">
+      clock();
+    </script>
+
+    <script type="text/javascript">
+      document.getElementById('select').addEventListener('change', function () {
+        document.getElementById('yourCity').innerHTML = this.value;
+      });
+    </script>
+
+    <script type="text/javascript">
+      $('#select').change(function (e) {
+        let city = $(this).find('option:selected');
+        let latitude = city.attr('data-latitude');
+        let longitude = city.attr('data-longitude');
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+      });
+    </script>
+  </body>
+</html>

@@ -28,7 +28,7 @@ main {
 header {
   display: flex;
   justify-content: space-around;
-  /* align-items: baseline; */
+  align-items: center;
   width: 1200px;
   margin-top: 50px;
 }
@@ -128,7 +128,6 @@ section h2 {
   width: 800px;
   display: flex;
   font-size: 40px;
-  
 }
 
 .search {
