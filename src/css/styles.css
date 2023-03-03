@@ -77,6 +77,20 @@ label {
   color: #000;
 }
 
+.search-geo {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  fill: #777;
+  border: 2px solid #969696;
+  transition: 0.7s;
+}
+
+.search-geo:hover {
+  fill: #000;
+  border: 2px solid #555;
+}
+
 section {
   display: flex;
   flex: 1;

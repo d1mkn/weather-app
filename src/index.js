@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
   form: document.querySelector('#api_form'),
   submitBtn: document.querySelector('[type=submit]'),
+  geoBtn: document.querySelector('.search-geo'),
   aboutSec: document.querySelector('.about'),
   cityEl: document.querySelector('#yourCity'),
   weatherEl: document.querySelector('.current-weather'),
@@ -12,25 +13,36 @@ const refs = {
   timeEl: document.querySelector('.last-update'),
 };
 
+const userGeo = [];
+
 refs.form.addEventListener('submit', onSubmit);
-window.addEventListener('load', function () {
+refs.geoBtn.addEventListener('click', findGeo);
+window.addEventListener('load', rewriteGeo);
+
+async function rewriteGeo() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(findGeo);
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      userGeo.push(position.coords.latitude);
+      userGeo.push(position.coords.longitude);
+    });
   } else {
     x.innerHTML = 'Geolocation is not supported by this browser.';
   }
-});
+}
 
-async function findGeo(position) {
-  const lat = position.coords.latitude;
-  const lon = position.coords.longitude;
-  //fetch
-  const weatherFetch = await fetchByCords(lat, lon);
-  const weatherData = weatherFetch.data;
-  // to local storage
-  localStorage.setItem('city', weatherData.name);
-  // render
-  await renderMarkup(weatherData);
+async function findGeo() {
+  try {
+    //fetch
+    const weatherFetch = await fetchByCords(userGeo[0], userGeo[1]);
+    const weatherData = weatherFetch.data;
+    // to local storage
+    localStorage.setItem('city', weatherData.name);
+    // render
+    await renderMarkup(weatherData);
+  } catch (error) {
+    console.log(error);
+    return Notify.warning('No access to your geolocation.');
+  }
 }
 
 async function onSubmit(e) {
