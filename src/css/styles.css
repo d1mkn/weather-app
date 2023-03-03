@@ -61,21 +61,6 @@ header input::placeholder {
   color: #777;
 }
 
-.latitude,
-.longitude,
-.search {
-  width: 100px;
-  height: 25px;
-  font-size: 14px;
-  border-radius: 10px;
-}
-
-.latitude:hover,
-.longitude:hover,
-.search:hover {
-  border: 2px solid #555;
-}
-
 label {
   color: #777;
 }
@@ -112,6 +97,7 @@ section .about {
 
 section h2 {
   width: 800px;
+  height: 49px;
   display: flex;
   font-size: 40px;
 }
