@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <main>
+    <main class="animated fadeIn">
       <header>
         <div class="logo">
           <a href="./index.html">Weather App</a>
@@ -23,9 +23,9 @@
         <form id="api_form">
           <input class="search" type="text" id="query" autocomplete="off" />
           <input class="search-submit" type="submit" value="Find" />
-          <button class="search-geo" type="button">
+          <button class="search-geo" type="button" >
             <svg width="15" height="15">
-              <use href="./images/geolocation.svg#geo"></use>
+              <use href="./images/sprite.svg#geo"></use>
             </svg>
           </button>
         </form>
@@ -33,39 +33,38 @@
       <section>
         <section class="about">
           <div class="city">
-            <h2 id="yourCity"></h2>
+            <h2 id="yourCity" class="animated"></h2>
           </div>
           <div class="weather-stats">
-            <div class="weather-icons-wrap animate__fadeIn"></div>
             <div class="weather-ico ico-img">
               <img src="./images/cloudy.png" alt="weather" />
               <div class="weather-stat1">
-                <p class="current-weather">&nbsp</p>
+                <p class="current-weather animated">&nbsp</p>
               </div>
             </div>
             <div class="temperature-ico ico-img">
               <img src="./images/celsius.png" alt="temperature" />
               <div class="weather-stat2">
-                <p class="current-temperature"></p>
+                <p class="current-temperature animated"></p>
                 <p>&nbsp</p>
               </div>
             </div>
             <div class="wind-ico ico-img">
               <img src="./images/wind.png" alt="wind" />
               <div class="weather-stat3">
-                <p class="current-wind"></p>
+                <p class="current-wind animated"></p>
                 <p>&nbsp</p>
               </div>
             </div>
           </div>
           <div class="time">
-            <p class="last-update"></p>
+            <p class="last-update animated flash"></p>
           </div>
         </section>
       </section>
 
       <footer>
-        <p>Designed by d1mkn</p>
+        <p>Designed by <a href="">d1mkn</a></p>
       </footer>
     </main>
     <script src="./index.js" type="module"></script>

@@ -26,19 +26,25 @@ async function rewriteGeo() {
       userGeo.push(position.coords.longitude);
     });
   } else {
-    x.innerHTML = 'Geolocation is not supported by this browser.';
+    return Notify.warning('Geolocation is not supported by this browser.');
   }
 }
 
 async function findGeo() {
   try {
-    //fetch
+    // fetch
     const weatherFetch = await fetchByCords(userGeo[0], userGeo[1]);
     const weatherData = weatherFetch.data;
+    // disable geo fetch btn
+    refs.geoBtn.setAttribute('disabled', true);
     // to local storage
     localStorage.setItem('city', weatherData.name);
     // render
     await renderMarkup(weatherData);
+    // enable geo fetch btn
+    setTimeout(() => {
+      refs.geoBtn.removeAttribute('disabled');
+    }, 2000);
   } catch (error) {
     console.log(error);
     return Notify.warning('No access to your geolocation.');
@@ -77,6 +83,19 @@ async function renderMarkup(weatherData) {
   refs.tempretureEl.innerHTML = Math.floor(weatherData.main.temp) + ' C&deg';
   refs.windEl.innerHTML = weatherData.wind.speed + ' m/s';
   refs.timeEl.innerHTML = `Last Update ` + time;
+  // animation
+  refs.cityEl.classList.add('fadeIn');
+  refs.weatherEl.classList.add('slideInUp');
+  refs.tempretureEl.classList.add('slideInUp');
+  refs.windEl.classList.add('slideInUp');
+  refs.timeEl.classList.add('flash');
+  setTimeout(() => {
+    refs.cityEl.classList.remove('fadeIn');
+    refs.weatherEl.classList.remove('slideInUp');
+    refs.tempretureEl.classList.remove('slideInUp');
+    refs.windEl.classList.remove('slideInUp');
+    refs.timeEl.classList.remove('flash');
+  }, 2000);
 }
 
 async function oldQueryMarkup() {
